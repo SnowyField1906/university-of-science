@@ -1,0 +1,68 @@
+DROP DATABASE TEST
+GO
+CREATE DATABASE TEST
+GO 
+USE TEST
+
+-------CREATE TABLE
+CREATE TABLE BAIBAO
+(
+    MaBB char(6),
+    Reviewer char(6),
+    TenBB nvarchar(50),
+    NgayDang DATE,
+    MaTruong char(6),
+    Hang char(1) CHECK (Hang IN ('A', 'B', 'C')) DEFAULT 'C'
+
+    CONSTRAINT PK_BAIBAO
+    PRIMARY KEY (MaBB, MaTruong)
+)
+
+CREATE TABLE TACGIA
+(
+    MaTruong char(6),
+    MaTacGia char(6),
+    TenTG nvarchar(20),
+    cmnd nvarchar(15) UNIQUE,
+    Phai nchar(3) CHECK (Phai IN (N'Nam', N'Nữ'))
+
+    CONSTRAINT PK_TACGIA
+    PRIMARY KEY (MaTruong, MaTacGia)
+)
+
+CREATE TABLE CHITIETBAIBAO
+(
+    MaBB char(6),
+    MaTruong char(6),
+    MaTG char(6)
+
+    CONSTRAINT PK_CHITIETBAIBAO
+    ---Chú ý thứ tự
+    PRIMARY KEY (MaBB, MaTruong, MaTG)
+)
+
+--------CREATE FK--------
+---
+ALTER TABLE BAIBAO ADD
+    CONSTRAINT FK_BAIBAO_TACGIA FOREIGN KEY (MaTruong, Reviewer) REFERENCES TACGIA(MaTruong, MaTacGia)
+
+ALTER TABLE CHITIETBAIBAO ADD 
+    CONSTRAINT FK_CHITIETBAIBAO_BAIBAO FOREIGN KEY (MaBB, MaTruong) REFERENCES BAIBAO(MaBB, MaTruong),
+    CONSTRAINT FK_CHITIETBAIBAO_TACGIA FOREIGN KEY (MaTruong, MaTG) REFERENCES TACGIA(MaTruong, MaTacGia)
+
+-------INSERT DATA-----
+INSERT INTO BAIBAO VALUES('BB1', NULL, N'Hệ thống tư vấn', '2012-11-22', 'TN', 'A')
+INSERT INTO BAIBAO VALUES('BB2', NULL, N'Hệ thống phân tác', '2012-12-25', 'TN', 'A')
+
+INSERT INTO TACGIA VALUES('TN', 'TGNa', N'Lê Nam', '1234567', N'Nam')
+INSERT INTO TACGIA VALUES('TN', 'TGVy', N'Hoàng Vy', '1234568', N'Nữ')
+INSERT INTO TACGIA VALUES('TN', 'TGHo', N'Gia Hồng', '1234569', N'Nữ')
+INSERT INTO TACGIA VALUES('TN', 'TGNu', N'Kim Nhung', '1234560', N'Nữ')
+
+INSERT INTO CHITIETBAIBAO VALUES('BB1', 'TN', 'TGVy')
+INSERT INTO CHITIETBAIBAO VALUES('BB1', 'TN', 'TGHo')
+INSERT INTO CHITIETBAIBAO VALUES('BB2', 'TN', 'TGNa')
+INSERT INTO CHITIETBAIBAO VALUES('BB2', 'TN', 'TGHo')
+
+UPDATE BAIBAO SET Reviewer = 'TGNa' WHERE MaBB = 'BB1' AND MaTruong = 'TN'
+UPDATE BAIBAO SET Reviewer = 'TGNu' WHERE MaBB = 'BB2' AND MaTruong = 'TN'

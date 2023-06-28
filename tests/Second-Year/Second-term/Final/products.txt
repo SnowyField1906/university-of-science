@@ -1,0 +1,2 @@
+SaleProduct Laptop 1000 10
+GiftProduct Watch 200 Birthday

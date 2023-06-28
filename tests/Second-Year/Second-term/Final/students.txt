@@ -1,0 +1,4 @@
+Undergraduate Student - Name: John Doe, Age: 20
+Major: Computer Science
+Graduate Student - Name: Jane Smith, Age: 25
+Research Topic: Machine Learning
