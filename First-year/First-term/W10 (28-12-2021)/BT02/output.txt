@@ -1,3 +1,0 @@
-Phuong trinh co 2 nghiem phan biet:
-x1 = -1
-x2 = -3
