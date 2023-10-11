@@ -1,0 +1,5 @@
+print(7:11)
+print(seq(2,9))
+print(seq(4,10,by=2))
+print(seq(3,30,length=10))
+print(seq(6,-4,by=-2))

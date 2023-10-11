@@ -1,0 +1,2 @@
+syms x y;
+P = x*y*cos(x*y) + sin(x*y);

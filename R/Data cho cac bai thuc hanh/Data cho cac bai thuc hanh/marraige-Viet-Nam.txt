@@ -1,0 +1,19 @@
+age.at,district,gender,mean,sd,n
+interview,Binh Leiu,men,29,8.5,210
+interview,Binh Leiu,women,29,9.1,210
+interview,Yen Hung,men,30,8.8,210
+interview,Yen Hung,women,31,8.4,210
+interview,Ha Long,men,31,9.2,210
+interview,Ha Long,women,30,8.7,210
+marriage,Binh Leiu,men,21,3.4,210
+marriage,Binh Leiu,women,20,2.8,210
+marriage,Yen Hung,men,25,3.4,210
+marriage,Yen Hung,women,22,3.0,210
+marriage,Ha Long,men,27,3.5,210
+marriage,Ha Long,women,23,2.7,210
+first intercourse,Binh Leiu,men,21,3.1,210
+first intercourse,Binh Leiu,women,20,3.0,210
+first intercourse,Yen Hung,men,24,3.3,210
+first intercourse,Yen Hung,women,22,3.0,210
+first intercourse,Ha Long,men,25,3.9,210
+first intercourse,Ha Long,women,23,2.6,210

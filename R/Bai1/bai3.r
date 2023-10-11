@@ -1,0 +1,5 @@
+print(rep(2,4))
+print(rep(c(1,2),4))
+print(rep(c(1,2),c(4,4)))
+print(rep(1:4,4))
+print(rep(1:4,rep(3,4)))

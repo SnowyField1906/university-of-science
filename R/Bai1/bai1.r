@@ -1,0 +1,10 @@
+x <- c(4,2,6)
+y <- c(1,0,-1)
+
+print(length(x))
+print(x)
+print(x^2)
+print(x+y)
+print(x*y)
+print(x-2)
+print(x^2)
