@@ -1,2 +1,0 @@
-username: admin, password: admin
-username: thuan, password: 123

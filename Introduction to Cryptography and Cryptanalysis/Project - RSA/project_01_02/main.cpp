@@ -640,6 +640,63 @@ public:
     // ---------------------------------------------------------------------- HELPER METHODS
 };
 
+class RSA
+{
+private:
+    // ATTRIBUTES --------------------------------------------------------------------------
+    BigInteger p, q;
+    // -------------------------------------------------------------------------- ATTRIBUTES
+
+public:
+    // CONSTRUCTORS ------------------------------------------------------------------------
+    RSA()
+    {
+        p = BigInteger(0);
+        q = BigInteger(0);
+    }
+
+    RSA(BigInteger p, BigInteger q)
+    {
+        this->p = p;
+        this->q = q;
+    }
+    // ------------------------------------------------------------------------ CONSTRUCTORS
+
+    // HELPER METHODS ----------------------------------------------------------------------
+    string d(BigInteger e) const // Check if e is valid
+    {
+        // return d in hex if valid, "-1" if invalid
+
+        BigInteger phi = (p - BigInteger(1)) * (q - BigInteger(1));
+        BigInteger k = BigInteger(1);
+        BigInteger d;
+        bool found = false;
+
+        while (true) // Find k
+        {
+            BigInteger temp = (k * phi + BigInteger(1)) / e;
+            if (temp * e == k * phi + BigInteger(1))
+            {
+                d = temp;
+                found = true;
+                break;
+            }
+            k++;
+            if (k > phi)
+                break;
+        }
+
+        if (found)
+        {
+            return d.to_hex();
+        }
+        else
+        {
+            return "-1";
+        }
+    }
+};
+
 // Process file
 void file_processing(string input, string output)
 {
@@ -654,23 +711,25 @@ void file_processing(string input, string output)
         exit(1);
     }
 
-    string hexValue;
-    inputFile >> hexValue;
-    inputFile.close();
-
-    BigInteger num;
-    num.from_hex(hexValue, false);
-    cout << "Decimal value: " << num << endl;
+    string p_hex;
+    string q_hex;
+    string e_hex;
+    inputFile >> p_hex;
+    inputFile >> q_hex;
+    inputFile >> e_hex;
+    BigInteger p;
+    BigInteger q;
+    BigInteger e;
+    p.from_hex(p_hex, false);
+    q.from_hex(q_hex, false);
+    e.from_hex(e_hex, false);
+    cout << "p-value: " << p << endl;
+    cout << "q-value: " << q << endl;
+    cout << "e-value: " << e << endl;
 
     stringstream buffer;
-    if (num.is_prime())
-    {
-        buffer << "1"; // is a prime number
-    }
-    else
-    {
-        buffer << "0"; // is not a prime number
-    }
+    RSA num = RSA(p, q);
+    buffer << num.d(e);
 
     // Compare to output file if it exists
     ifstream actualOutputFile(output);
@@ -678,6 +737,9 @@ void file_processing(string input, string output)
     {
         string actualOutput;
         actualOutputFile >> actualOutput;
+
+        cout << "d-value (computed): " << buffer.str() << endl;
+        cout << "d-value (actual): " << actualOutput << endl;
 
         if (actualOutput == buffer.str())
         {
@@ -713,17 +775,17 @@ void test()
 
 int main(int argc, char *argv[])
 {
-    // test();
+    test();
 
-    if (argc != 3)
-    {
-        cout << "Usage: " << argv[0] << " input_file output_file" << endl;
-        return 1;
-    }
-    else
-    {
-        file_processing(argv[1], argv[2]);
-    }
+    // if (argc != 3)
+    // {
+    //     cout << "Usage: " << argv[0] << " input_file output_file" << endl;
+    //     return 1;
+    // }
+    // else
+    // {
+    //     file_processing(argv[1], argv[2]);
+    // }
 
     return 0;
 }
