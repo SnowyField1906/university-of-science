@@ -62,7 +62,7 @@ protected:
         }
     }
 
-    string little_to_big_endian(string s) const // Convert little endian hex to big endian
+    string reverse_endian(string s) const // Reverse endian of hex string
     {
         string res = s;
 
@@ -652,9 +652,9 @@ public:
             temp = temp / 16;
         }
 
-        if (!is_big_endian)
+        if (is_big_endian)
         {
-            res = little_to_big_endian(res);
+            res = reverse_endian(res);
         }
 
         return res;
@@ -664,7 +664,7 @@ public:
     {
         if (!is_big_endian)
         {
-            s = little_to_big_endian(s);
+            s = reverse_endian(s);
         }
 
         int len = s.length();
@@ -824,17 +824,17 @@ void test()
 
 int main(int argc, char *argv[])
 {
-    test();
+    // test();
 
-    // if (argc != 3)
-    // {
-    //     cout << "Usage: " << argv[0] << " input_file output_file" << endl;
-    //     return 1;
-    // }
-    // else
-    // {
-    //     file_processing(argv[1], argv[2]);
-    // }
+    if (argc != 3)
+    {
+        cout << "Usage: " << argv[0] << " input_file output_file" << endl;
+        return 1;
+    }
+    else
+    {
+        file_processing(argv[1], argv[2]);
+    }
 
     return 0;
 }
