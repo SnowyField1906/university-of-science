@@ -751,37 +751,93 @@ public:
     // ---------------------------------------------------------------------- HELPER METHODS
 };
 
+class RSA
+{
+private:
+    // ATTRIBUTES --------------------------------------------------------------------------
+    biguint p, q;
+    // -------------------------------------------------------------------------- ATTRIBUTES
+
+public:
+    // CONSTRUCTORS ------------------------------------------------------------------------
+    RSA()
+    {
+        p = biguint(0);
+        q = biguint(0);
+    }
+
+    RSA(biguint p, biguint q)
+    {
+        this->p = p;
+        this->q = q;
+    }
+
+    // ------------------------------------------------------------------------ CONSTRUCTORS
+
+    //
+
+    // HELPER METHODS ----------------------------------------------------------------------
+    string secret_exponent(biguint public_exponent) const // Get secret exponent (d)
+    {
+        biguint phi = (p - biguint(1)) * (q - biguint(1));
+        biguint d = public_exponent.mod_inverse(phi);
+
+        if (d == biguint(0))
+        {
+            return "-1";
+        }
+        else
+        {
+            return d.to_hex();
+        }
+    }
+
+    string encrypt(biguint n, biguint public_exponent, biguint message) const // Encrypt message (m^e mod n)
+    {
+        return message.pow(public_exponent, n).to_hex();
+    }
+
+    string decrypt(biguint n, biguint secret_exponent, biguint message) const // Decrypt message (c^d mod n)
+    {
+        return message.pow(secret_exponent, n).to_hex();
+    }
+
+    // ---------------------------------------------------------------------- HELPER METHODS
+};
+
 // Process file
 void file_processing(string input, string output)
 {
     // set timeout
     clock_t begin = clock();
 
-    ifstream fin(input);
+    ifstream inputFile(input);
     cout << "Processing file: " << input << endl;
-    if (!fin.is_open())
+    if (!inputFile.is_open())
     {
         cout << "Failed to open input file." << endl;
         exit(1);
     }
 
-    string hex_value;
-    fin >> hex_value;
-    fin.close();
-
-    biguint num;
-    num.from_hex(hex_value, false);
-    cout << "Value (decimal): " << num << endl;
+    string n_hex;
+    string k_hex;
+    string x_hex;
+    inputFile >> n_hex;
+    inputFile >> k_hex;
+    inputFile >> x_hex;
+    biguint n;
+    biguint k;
+    biguint x;
+    n.from_hex(n_hex, false);
+    k.from_hex(k_hex, false);
+    x.from_hex(x_hex, false);
+    cout << "n-value (decimal): " << n << endl;
+    cout << "k-value (decimal): " << k << endl;
+    cout << "x-value (decimal): " << x << endl;
 
     stringstream buffer;
-    if (num.is_prime())
-    {
-        buffer << "1"; // is a prime number
-    }
-    else
-    {
-        buffer << "0"; // is not a prime number
-    }
+    RSA num = RSA();
+    buffer << num.encrypt(n, k, x);
 
     // Compare to output file if it exists
     ifstream fiout(output);
