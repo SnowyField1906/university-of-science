@@ -153,7 +153,19 @@
 		"latch": "cpp",
 		"ranges": "cpp",
 		"span": "cpp",
-		"syncstream": "cpp"
+		"syncstream": "cpp",
+		"__bit_reference": "cpp",
+		"__config": "cpp",
+		"__debug": "cpp",
+		"__errc": "cpp",
+		"__hash_table": "cpp",
+		"__locale": "cpp",
+		"__mutex_base": "cpp",
+		"__node_handle": "cpp",
+		"__split_buffer": "cpp",
+		"__threading_support": "cpp",
+		"__verbose_abort": "cpp",
+		"locale": "cpp"
 	},
 	"[python]": {
 		"editor.defaultFormatter": "ms-python.python"
