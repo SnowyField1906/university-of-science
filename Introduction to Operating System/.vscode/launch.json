@@ -1,0 +1,13 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "C/C++ Runner: Debug Session",
+      "type": "lldb",
+      "request": "launch",
+      "args": [],
+      "cwd": "/Users/apple/Data/code rides me/University-of-Science/Introduction to Operating System",
+      "program": "/Users/apple/Data/code rides me/University-of-Science/Introduction to Operating System/build/Debug/outDebug"
+    }
+  ]
+}
