@@ -1,0 +1,12 @@
+7
+E OR -C OR -A
+G OR E
+G
+-F OR A OR E OR C
+-C OR -A
+-F
+A OR E OR -G
+2
+{}
+A OR E OR C
+YES

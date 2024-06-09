@@ -360,18 +360,6 @@ my_model.evaluate(x = test_features, y = test_label, batch_size=batch_size, retu
 How did the deep neural net perform against the baseline linear regression model?
 """
 
-#@title Double-click to view a possible answer
-
-# Assuming that the linear model converged and
-# the deep neural net model also converged, please
-# compare the test set loss for each.
-# In our experiments, the loss of the deep neural
-# network model was consistently lower than
-# that of the linear regression model, which
-# suggests that the deep neural network model
-# will make better predictions than the
-# linear regression model.
-
 """## Task 2: Optimize the deep neural network's topography
 
 Experiment with the number of layers of the deep neural network and the number of nodes in each layer.  Aim to achieve both of the following goals:

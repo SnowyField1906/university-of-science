@@ -1,0 +1,142 @@
+7
+E OR -C OR -A
+G OR E
+G
+-F OR A OR E OR C
+-C OR -A
+-F
+A OR E OR -G
+2
+{}
+A OR E OR C
+8
+-F OR E OR H
+E OR -B
+D
+-D OR B
+F OR E OR C
+F OR -A
+D OR E
+-F
+14
+-A
+F
+E OR H OR -A
+B
+-F OR E
+E OR -D
+-D
+E OR B
+E OR -D OR H
+E OR C OR H
+E OR F
+E OR C
+E OR C OR B
+B OR -A
+4
+E OR -A
+{}
+E
+E OR H
+9
+-D OR Y
+D OR B
+C OR H
+-C
+D OR H OR B
+Y OR -A
+A OR H OR B
+D OR A
+H
+12
+Y OR H OR B
+A OR H
+D
+Y OR A OR B
+D OR Y OR B
+H OR B
+D OR Y
+Y
+C OR Y
+D OR H
+Y OR B
+A OR Y
+1
+Y OR H
+0
+7
+F
+-B OR C
+-B
+G
+D
+F OR C
+F OR -D OR E OR B OR -G
+4
+A OR E OR -D OR B
+{}
+A OR E OR -D OR -G
+-D OR E OR C OR A OR -G
+9
+-B OR C OR -A
+-F OR -H OR C
+F OR C OR -A
+D OR G OR -B OR -A
+D OR E OR -B OR C OR -A OR G
+-F OR -H OR E
+-C OR D OR -B OR -F OR -A OR G
+-E OR -B OR C OR -A
+D OR G OR H OR -A
+22
+C OR -A
+D OR C OR -F OR -A OR G
+-H OR -B OR C OR -A
+-F OR -H
+-B OR -F OR -H OR -A OR -E
+D OR E OR -B OR -F OR -H OR -A OR G
+-B OR C OR -F OR -H OR -A
+D OR -B OR C OR -A OR G
+C OR -E OR -A
+-C OR D OR -F OR -A OR G
+-F OR -H OR -B OR -A
+-H OR E OR C OR -A
+D OR E OR C OR -A OR G
+D OR -B OR C OR -F OR -A OR G
+E OR -B OR C OR -H OR -A
+D OR -B OR -F OR -H OR -A OR G
+D OR G OR -A
+D OR -B OR -F OR -A OR G
+D OR E OR -B OR -F OR -A OR G
+D OR E OR -F OR -A OR G
+-H OR C OR -A
+D OR -B OR -F OR -A OR G OR -E
+15
+-F OR -H OR -E OR -A
+D OR -F OR -A OR G OR -E
+-F OR -H OR E OR -A
+-B OR C OR -H OR -A OR -E
+D OR E OR -B OR C OR -H OR -A OR G
+D OR -B OR C OR -A OR G OR -E
+D OR -F OR -H OR -A OR G
+D OR -B OR C OR -F OR -H OR -A OR G
+E OR -B OR -F OR -H OR -A
+D OR G OR C OR -A
+D OR -B OR C OR -H OR -A OR G
+D OR G OR -F OR -A
+D OR E OR -F OR -H OR -A OR G
+-F OR -H OR -A
+-F OR -H OR C OR -A
+6
+D OR C OR -H OR -A OR G
+D OR E OR C OR -H OR -A OR G
+D OR -B OR -F OR -H OR -A OR G OR -E
+-H OR C OR -E OR -A
+D OR C OR -A OR G OR -E
+D OR C OR -F OR -H OR -A OR G
+2
+D OR -F OR -H OR -A OR G OR -E
+D OR -B OR C OR -H OR -A OR G OR -E
+1
+D OR C OR -H OR -A OR G OR -E
+0
+NO
